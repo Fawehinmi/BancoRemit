@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>BancoRemit - Dashboard</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap"
-        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/output.css" />
     <link rel="stylesheet" href="./css/style.css">
@@ -17,14 +16,10 @@
     <div class="dashboard-container px-0">
         <div class="page-overlay fixed left-0 w-full h-screen top-0"></div>
         <!-- popup for  -->
-        <div onclick="hideAllPopup(event)"
-            class="popup-overlay flex hidden justify-center py-6 fixed left-0 top-0 h-screen overflow-y-scroll w-full">
-            <div class="popup hidden transaction-filter-popup z-90 shadow ...">
-                <div class="top flex items-center px-5 br-text-sm">
-                    Date
-                </div>
-                <div
-                    class="flex datetime border-b border-gray-100 justify-between gap-2 py-4 br-text-xs px-5 br-text-sm">
+        <div onclick="hideAllPopup(event)" class="popup-overlay flex hidden justify-center py-6 fixed left-0 top-0 h-screen overflow-y-scroll w-full">
+            <div class="popup hidden invoice-filter-popup z-90 shadow ...">
+                <div class="top flex items-center px-5 br-text-sm">Date</div>
+                <div class="flex datetime border-b border-gray-100 justify-between gap-2 py-4 br-text-xs px-5 br-text-sm">
                     <a href="#">Today</a>
                     <a href="#">Last 7 days</a>
                     <a href="#" class="active">30 Days</a>
@@ -34,167 +29,34 @@
                     <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
                     <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
                 </div>
-                <div class="top flex items-center px-5 br-text-sm">
-                    Status
+                <div class="top flex items-center px-5 br-text-sm">Status</div>
+                <div class="flex items-center justify-center gap-x-5 gap-y-1 py-3 flex-wrap px-5 br-text-sm">
+                    <span><input type="checkbox" /> Due</span>
+                    <span><input type="checkbox" /> Paid</span>
+                    <span><input type="checkbox" /> Issued</span>
+                    <span><input type="checkbox" /> Draft</span>
                 </div>
-                <div class="flex items-center gap-x-5 gap-y-1 py-3 flex-wrap px-5 br-text-sm">
-                    <span><input type="checkbox"> Sucessful</span>
-                    <span><input type="checkbox"> Abandoned</span>
-                    <span><input type="checkbox"> Pending</span>
-                    <span><input type="checkbox"> Cancelled</span>
-                    <span><input type="checkbox"> Voided</span>
-                </div>
-                <div class="top flex items-center px-5 br-text-sm">
-                    Transaction Type
-                </div>
-                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border"
-                        placeholder="Select transaction type" />
-                </div>
-                <div class="top flex items-center px-5 br-text-sm">
-                    Currency
-                </div>
-                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border"
-                        placeholder="Select transaction type" />
-                </div>
-                <div class="top flex items-center px-5 br-text-sm">
-                    POS ID
-                </div>
-                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border"
-                        placeholder="Enter POS ID" />
-                </div>
-                <div class="top flex items-center px-5 br-text-sm">
-                    Messa Reciept number
-                </div>
-                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border"
-                        placeholder="Enter messa reciept number" />
-                </div>
-                <div class="flex gap-5 py-5 mt-3 items-center justify-between px-5 br-text-sm">
+                <div class="flex gap-5 pt-5 mt-3 items-center justify-between px-5 br-text-sm">
                     <button class="default-btn" onclick="hidePopup()">Cancel</button>
                     <button class="primary-btn">Filter</button>
-                </div>
-            </div>
-            <div class="popup hidden refund-filter-popup z-90 shadow ...">
-                <div class="top flex items-center px-5 br-text-sm">
-                    Date
-                </div>
-                <div
-                    class="flex datetime border-b border-gray-100 justify-between gap-2 py-4 br-text-xs px-5 br-text-sm">
-                    <a href="#">Today</a>
-                    <a href="#">Last 7 days</a>
-                    <a href="#" class="active">30 Days</a>
-                    <a href="#">1 year</a>
-                </div>
-                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
-                    <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
-                    <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
-                </div>
-                <div class="top flex items-center px-5 br-text-sm">
-                    Status
-                </div>
-                <div class="flex items-center gap-x-5 gap-y-1 py-3 flex-wrap px-5 br-text-sm">
-                    <span><input type="checkbox"> Sucessful</span>
-                    <span><input type="checkbox"> Abandoned</span>
-                    <span><input type="checkbox"> Pending</span>
-                </div>
-                <div class="flex gap-5 py-5 mt-2 items-center justify-between px-5 br-text-sm">
-                    <button class="default-btn" onclick="hidePopup()">Cancel</button>
-                    <button class="primary-btn">Filter</button>
-                </div>
-            </div>
-            <div class="popup hidden single-refund-popup z-90 shadow ...">
-                <div class="top flex items-center px-5 br-text-sm">
-                    Make a Refund
                 </div>
 
-                <div class="flex gap-1 py-5 flex-col justify-center px-5 br-text-sm">
-                    <p class="br-text-xs flex justify-between">
-                        <span class="text-black">Payment reference</span>
-                        <span class="text-blue-600 font-light">What is this?</span>
-                    </p>
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border rounded" />
-                </div>
-                <div class="flex gap-1 py-2 flex-col justify-center px-5 br-text-sm">
-                    <p class="br-text-xs flex justify-between">
-                        <span class="text-black">How much do you want to refund</span>
-                    </p>
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border rounded"
-                        placeholder="0.00" />
-                </div>
-                <div class="flex gap-1 py-2 flex-col justify-center px-5 br-text-sm">
-                    <p class="br-text-xs flex justify-between">
-                        <span class="text-black">Refund destination</span>
-                    </p>
-                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border rounded"
-                        placeholder="Payment source (5-15 business days)" />
-                </div>
-                <div class="flex gap-1 py-2 flex-col justify-center px-5 br-text-sm">
-                    <p class="br-text-xs flex justify-between">
-                        <span class="text-black">Comment</span>
-                    </p>
-                    <input type="text" class="w-full h-24 border border-gray-300 px-2 light-border rounded"
-                        placeholder="Payment source (5-15 business days)" />
-                </div>
-                <div class="flex gap-2 py-2 mt-2 items-center justify-between px-5 br-text-sm">
-                    <button class="white-btn flex br-text-sm items-center gap-1" onclick="hidePopup()">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.6705 19.1704C14.2312 19.6098 13.5188 19.6098 13.0795 19.1704L6.7045 12.7955C6.26517 12.3562 6.26517 11.6438 6.7045 11.2045L13.0795 4.8295C13.5188 4.39017 14.2312 4.39017 14.6705 4.8295C15.1098 5.26884 15.1098 5.98116 14.6705 6.42049L9.09099 12L14.6705 17.5795C15.1098 18.0189 15.1098 18.7311 14.6705 19.1704Z"
-                                fill="#505362" />
-                        </svg>
-                        Go back
-                    </button>
+            </div>
 
-                    <div>
-                        <button class="default-btn" onclick="hidePopup()">Cancel</button>
-                        <button class="primary-btn">Filter</button>
-                    </div>
-                </div>
-            </div>
-            <div class="popup hidden download-transaction-popup z-90 shadow ...">
-                <div class="top flex items-center px-5 br-text-sm">
-                    Download Account summary
-                </div>
-                <div
-                    class="flex datetime border-b border-gray-100 justify-between gap-2 text-center py-4 br-text-xs px-5 br-text-sm">
-                    Customise your data. Choose the information you want included in your download.
-                </div>
-                <div class="flex justify-center flex-col gap-y-3 gap-x-1 py-3 flex-wrap px-5 br-text-sm">
-                    <span><input type="radio" name="time" onchange="ActivateCustomTimeField(event)"> Today</span>
-                    <span><input type="radio" name="time" onchange="ActivateCustomTimeField(event)"> Yesterday</span>
-                    <span><input type="radio" name="time" onchange="ActivateCustomTimeField(event)"> Last 7 days</span>
-                    <span><input type="radio" name="time" onchange="ActivateCustomTimeField(event)"> Last 30 days</span>
-                    <span><input type="radio" name="time" onchange="ActivateCustomTimeField(event)"> Last 1 year</span>
-                    <span><input type="radio" name="time" class="custom-time-radio" onchange="ActivateCustomTimeField(event)"> Custom Date range</span>
-                </div>
-                <div class="flex gap-1 py-5 flex-col justify-center px-5 br-text-sm">
-                    <p class="br-text-xs flex justify-between">
-                        <span class="text-black">Data type</span>
-                    </p>
-                    <input type="date" disabled="true" class="time-custom-field w-full h-10 border border-gray-300 px-2 light-border rounded" />
-                </div>
-                <div class="flex gap-5 py-5 mt-2 items-center justify-between px-5 br-text-sm">
-                    <button class="default-btn" onclick="hidePopup()">Cancel</button>
-                    <button class="primary-btn">Filter</button>
-                </div>
-            </div>
+
         </div>
-        <div class="sidebar">
+        <div class="sidebar sticky top-0">
             <div class="sidebar-navbar flex flex-col justify-center pl-6">
                 <a href="" class="sidebar-logo">
                     Keazzy
                 </a>
                 <p class="br-text-sm font-normal">
-                    <span class="text-gray-400">Merchant ID:</span>
-                    01234567
+                    <span class="text-gray-400">Merchant ID:</span> 01234567
                 </p>
             </div>
             <div class="sidebar-nav">
                 <ul class="side-navlist">
-                    <a href="" class="side-nav flex">
+                    <a href="./overview.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/overview-icon.svg" width="20px"
@@ -206,7 +68,7 @@
                         </li>
                     </a>
                     <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Your Business</p>
-                    <a href="" class="side-nav active-sidebar flex">
+                    <a href="transaction.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/transaction-icon.svg" width="20px"
@@ -217,7 +79,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./customer.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/customer-icon.svg" width="20px"
@@ -228,7 +90,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./balance.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/balance-icon.svg" width="20px"
@@ -239,7 +101,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./transfer.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/transfer-icon.svg" width="20px"
@@ -250,7 +112,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./sub-account.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/subaccount-icon.svg" width="20px"
@@ -261,7 +123,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./card.html" class="side-nav flex ">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/card-icon.svg" width="20px"
@@ -272,7 +134,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./chargeback.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/chargeback-icon.svg" width="20px"
@@ -283,7 +145,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./airtime-and-dstv.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/airtimeAndDstv-icon.svg" width="20px"
@@ -295,7 +157,7 @@
                         </li>
                     </a>
                     <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Collect Payments</p>
-                    <a href="" class="side-nav flex">
+                    <a href="./store.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/store-icon.svg" width="20px"
@@ -306,7 +168,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./payment-link.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/paymentLink-icon.svg" width="20px"
@@ -318,7 +180,7 @@
                         </li>
                     </a>
                     <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Billing Tools</p>
-                    <a href="" class="side-nav flex">
+                    <a href="./payment-plan.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/paymentplan-icon.svg" width="20px"
@@ -329,7 +191,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./create-invoice.html" class="side-nav flex active-sidebar">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/invoices-icon.svg" width="20px"
@@ -340,7 +202,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="#switch" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/switch-icon.svg" width="20px"
@@ -351,7 +213,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./refferal.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/referral-icon.svg" width="20px"
@@ -362,7 +224,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="" class="side-nav flex">
+                    <a href="./setting.html" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/setting-icon.svg" width="20px"
@@ -373,7 +235,7 @@
                             </span>
                         </li>
                     </a>
-                    <a href="#logout" style="margin-top: 32px;margin-bottom: 20px" class="side-nav flex">
+                    <a href="./pages/login.html#logout" style="margin-top: 32px;margin-bottom: 20px" class="side-nav flex">
                         <li class="flex items-center br-nav-gap">
                             <span class="nav-icon">
                                 <img src="./assets/dashboard-icons/signout-icon.svg" width="20px"
@@ -394,11 +256,9 @@
                     <span class="absolute icon">
                         <img src="./assets/dashboard-icons/inner-content/search-icon.svg" width="13.67" alt="">
                     </span>
-                    <input type="text" class="nav-search-bar br-text-xs font-normal pl-8 text-gray-400 br-input-2"
-                        placeholder="Search transaction, customers, cards, subaccounts and payment references.">
+                    <input type="text" class="nav-search-bar br-text-xs font-normal pl-8 text-gray-400 br-input-2" placeholder="Search transaction, customers, cards, subaccounts and payment references.">
                 </div>
-                <button
-                    class="user-status flex items-center gap-1 py-2 px-3 font-light br-text-xs text-white rounded-full">
+                <button class="user-status flex items-center gap-1 py-2 px-3 font-light br-text-xs text-white rounded-full">
                     You are live
                     <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -420,89 +280,87 @@
             </div>
             <div class="w-full h-auto px-5 py-5">
                 <div class="content-box bg-white h-auto pb-4 w-full">
-                    <div class="tab-container">
-                        <a href="#all-transactions" id="transaction-tab" class="tab-nav active">
-                            All Transactions
-                        </a>
-                        <a href="#refunds" id="refund-tab" class="tab-nav">
-                            Refunds
-                        </a>
+                    <div class="tab-container flex justify-between">
+                        <p>invoices</p>
+                        <div class="flex">
+                            <button class="default-btn flex items-center gap-2 mx-3 " onclick="showPopup('invoice-filter-popup')">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M2.75216 1.3335H13.2479C14.0318 1.3335 14.6667 1.98753 14.6667 2.795V3.816C14.6667 4.20771 14.5136 4.58387 14.2418 4.85821L9.90515 9.24484C9.83033 9.32121 9.72874 9.36363 9.62372 9.36292L5.99266 9.35161C5.88215 9.35161 5.77713 9.30424 5.70163 9.22151L1.71639 4.83842C1.46997 4.56761 1.33337 4.20984 1.33337 3.83863V2.79571C1.33337 1.98824 1.96829 1.3335 2.75216 1.3335ZM6.18672 10.5495L9.4231 10.5594C9.6249 10.5601 9.78827 10.7291 9.78827 10.9362V12.7569C9.78827 12.9648 9.67021 13.1529 9.48625 13.2399L6.54846 14.6193C6.47982 14.6512 6.40706 14.6667 6.3343 14.6667C6.23752 14.6667 6.14073 14.6384 6.05631 14.5826C5.90873 14.485 5.8195 14.3167 5.8195 14.1364V10.9263C5.8195 10.7178 5.98424 10.5488 6.18672 10.5495Z"
+                                        fill="#363949" />
+                                </svg>
+                                <p class=" md:flex">Filter by</p>
+                            </button>
+                            <a href="create-invoice.html" class="primary-btn flex items-center gap-2 mx-3" onclick="">
+                                <p class=" md:flex">New invoice</p>
+                            </a>
+                            <button class="default-btn flex items-center gap-2 mx-3">
+                                <p class=" md:flex">Download</p>
+                            </button>
+                        </div>
                     </div>
-                    <div class="tab-content transaction-tab">
-                        <div class="tab-container2 flex items-center justify-between">
-                            <p class="br-text-primary">No transactions</p>
-                            <div class="flex items-center gap-4">
-                                <button onclick="showTransactionFilterPopup()"
-                                    class="default-btn flex items-center gap-2 ">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M2.75216 1.3335H13.2479C14.0318 1.3335 14.6667 1.98753 14.6667 2.795V3.816C14.6667 4.20771 14.5136 4.58387 14.2418 4.85821L9.90515 9.24484C9.83033 9.32121 9.72874 9.36363 9.62372 9.36292L5.99266 9.35161C5.88215 9.35161 5.77713 9.30424 5.70163 9.22151L1.71639 4.83842C1.46997 4.56761 1.33337 4.20984 1.33337 3.83863V2.79571C1.33337 1.98824 1.96829 1.3335 2.75216 1.3335ZM6.18672 10.5495L9.4231 10.5594C9.6249 10.5601 9.78827 10.7291 9.78827 10.9362V12.7569C9.78827 12.9648 9.67021 13.1529 9.48625 13.2399L6.54846 14.6193C6.47982 14.6512 6.40706 14.6667 6.3343 14.6667C6.23752 14.6667 6.14073 14.6384 6.05631 14.5826C5.90873 14.485 5.8195 14.3167 5.8195 14.1364V10.9263C5.8195 10.7178 5.98424 10.5488 6.18672 10.5495Z"
-                                            fill="#363949" />
-                                    </svg>
-                                    <p class="hidden md:flex">Filtered By Transactions: <span class="text-gray-500">From
-                                            Last 30 days</span></p>
-                                </button>
-
-                                <button class="download-btn flex gap-2 items-center">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M4 0H9.5V1H4C3.44772 1 3 1.44772 3 2V14C3 14.5523 3.44772 15 4 15H12C12.5523 15 13 14.5523 13 14V4.5H14V14C14 15.1046 13.1046 16 12 16H4C2.89543 16 2 15.1046 2 14V2C2 0.89543 2.89543 0 4 0Z"
-                                            fill="white" />
-                                        <path d="M9.5 3V0L14 4.5H11C10.1716 4.5 9.5 3.82843 9.5 3Z" fill="white" />
-                                    </svg>
-                                    <p onclick="showDownloadTransactionPopup()" class="hidden md:flex text-white br-text-xs">Download</p>
-                                </button>
+                    <div class="tab-content card-tab">
+                        <div class="w-full flex  justify-center items-center h-80 no-design">
+                            <div class="no-cards px-5">
+                                <h1 class="no-header my-7">You have not created any invoices yet.</h1>
+                                <p class="py-4">you do not have any airtime purchases yet</p>
+                                <button onclick="checkInvoiceDesign()" class="primary-btn mt-5">invoice design</button>
                             </div>
+                            <svg class="mx-auto block" width="249" height="162" viewBox="0 0 249 162" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <line x1="203" y1="96.5" x2="249" y2="96.5" stroke="#8A92C7" />
+                                <circle cx="75" cy="53" r="5.5" fill="white" stroke="#BABFDE" />
+                                <mask id="path-3-inside-1_2_15145" fill="white">
+                                    <path
+                                        d="M190 97C190 88.4641 188.319 80.0117 185.052 72.1256C181.786 64.2394 176.998 57.0739 170.962 51.0381C164.926 45.0022 157.761 40.2144 149.874 36.9478C141.988 33.6813 133.536 32 125 32C116.464 32 108.012 33.6813 100.126 36.9478C92.2394 40.2144 85.0739 45.0023 79.0381 51.0381C73.0022 57.0739 68.2144 64.2394 64.9478 72.1256C61.6813 80.0117 60 88.4641 60 97L125 97H190Z" />
+                                </mask>
+                                <path
+                                    d="M190 97C190 88.4641 188.319 80.0117 185.052 72.1256C181.786 64.2394 176.998 57.0739 170.962 51.0381C164.926 45.0022 157.761 40.2144 149.874 36.9478C141.988 33.6813 133.536 32 125 32C116.464 32 108.012 33.6813 100.126 36.9478C92.2394 40.2144 85.0739 45.0023 79.0381 51.0381C73.0022 57.0739 68.2144 64.2394 64.9478 72.1256C61.6813 80.0117 60 88.4641 60 97L125 97H190Z"
+                                    fill="white" stroke="#BABFDE" stroke-width="2"
+                                    mask="url(#path-3-inside-1_2_15145)" />
+                                <line x1="42" y1="30.5" x2="54" y2="30.5" stroke="#BABFDE" />
+                                <line x1="47" y1="34.5" x2="59" y2="34.5" stroke="#BABFDE" />
+                                <line x1="59" y1="30.5" x2="64" y2="30.5" stroke="#BABFDE" />
+                                <line y1="-0.5" x2="12" y2="-0.5"
+                                    transform="matrix(-1 -3.35121e-07 -3.35121e-07 1 145 1)" stroke="#BABFDE" />
+                                <line y1="-0.5" x2="12" y2="-0.5"
+                                    transform="matrix(-1 -3.35121e-07 -3.35121e-07 1 140 5)" stroke="#BABFDE" />
+                                <line y1="-0.5" x2="5" y2="-0.5"
+                                    transform="matrix(-1 -3.35121e-07 -3.35121e-07 1 128 1)" stroke="#BABFDE" />
+                                <line x1="185" y1="20.5" x2="197" y2="20.5" stroke="#BABFDE" />
+                                <line x1="190" y1="24.5" x2="202" y2="24.5" stroke="#BABFDE" />
+                                <line x1="202" y1="20.5" x2="207" y2="20.5" stroke="#BABFDE" />
+                                <circle cx="183" cy="21" r="5.5" fill="white" stroke="#8A92C7" />
+                                <circle cx="128" cy="53" r="2.5" fill="white" stroke="#BABFDE" />
+                                <circle cx="141" cy="68" r="6.5" fill="white" stroke="#BABFDE" />
+                                <line x1="4.37114e-08" y1="96.5" x2="192" y2="96.5" stroke="#8A92C7" />
+                            </svg>
                         </div>
-                        <div class="w-full flex flex-col justify-center items-center h-40">
-                            <p class="br-text-sm text-center">You do not have any transactions yet.</p>
-                            <p class="br-text-sm text-center">Go ahead and share your payment pages and start selling.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="tab-content refund-tab hidden">
-                        <div class="tab-container2 flex items-center justify-between">
-                            <p class="br-text-primary br-text-sm">No Refunds</p>
-                            <div class="flex items-center gap-2">
-                                <button onclick="showRefundFilterPopup()"
-                                    class="default-btn flex gap-2 items-center br-text-xs">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                            d="M2.7521 1.3335H13.2479C14.0317 1.3335 14.6666 1.98753 14.6666 2.795V3.816C14.6666 4.20771 14.5136 4.58387 14.2418 4.85821L9.90508 9.24484C9.83027 9.32121 9.72868 9.36363 9.62366 9.36292L5.9926 9.35161C5.88209 9.35161 5.77707 9.30424 5.70157 9.22151L1.71632 4.83842C1.46991 4.56761 1.33331 4.20984 1.33331 3.83863V2.79571C1.33331 1.98824 1.96823 1.3335 2.7521 1.3335ZM6.18672 10.5495L9.4231 10.5594C9.6249 10.5601 9.78827 10.7291 9.78827 10.9362V12.7569C9.78827 12.9648 9.67021 13.1529 9.48625 13.2399L6.54846 14.6193C6.47982 14.6512 6.40706 14.6667 6.3343 14.6667C6.23752 14.6667 6.14073 14.6384 6.05631 14.5826C5.90873 14.485 5.8195 14.3167 5.8195 14.1364V10.9263C5.8195 10.7178 5.98424 10.5488 6.18672 10.5495Z"
-                                            fill="#363949" />
-                                    </svg>
-                                    Filter By
-                                </button>
-                                <button class="default-btn flex gap-2 items-center br-text-xs">
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M4 0H9.5V1H4C3.44772 1 3 1.44772 3 2V14C3 14.5523 3.44772 15 4 15H12C12.5523 15 13 14.5523 13 14V4.5H14V14C14 15.1046 13.1046 16 12 16H4C2.89543 16 2 15.1046 2 14V2C2 0.89543 2.89543 0 4 0Z"
-                                            fill="#363949" />
-                                        <path d="M9.5 3V0L14 4.5H11C10.1716 4.5 9.5 3.82843 9.5 3Z" fill="#363949" />
-                                    </svg>
-                                    Download
-                                </button>
-                                <button onclick="showRefundLogOption()" class="download-btn br-text-xs relative">
-                                    Log a refund
 
-                                    <div
-                                        class="refund-log-dropdown flex hidden flex-col items-start absolute bg-white border border-gray-200 z-90 right-0 top-12 shadow rounded py-2 px-2">
-                                        <a href="#" onclick="showSingleRefundPopup()"
-                                            class="w-full br-text-xs hover:bg-blue-50 my-1">Single Refund</a>
-                                        <a href="#" class="w-full br-text-xs hover:bg-blue-50 my-1">Bulk Refund</a>
+
+                        <div class="w-full flex flex-col justify-center items-center h-40 invoice-design hidden">
+                            <div class="table-container w-full">
+                                <div class="table w-full">
+                                    <div class="table-head w-full h-12 bg-blue-50 flex items-center justify-between px-5 br-text-sm">
+                                        <span>Status</span>
+                                        <span>Customer</span>
+                                        <span>Amount</span>
+                                        <span>Invoice No</span>
+                                        <span>Invoice Type</span>
+                                        <span>Date</span>
                                     </div>
-                                </button>
+                                    <div class="table-body py-2">
+                                        <div class="w-full h-12 flex items-center justify-between px-5 br-text-sm border-b border-gray-100">
+                                            <button class="danger-button">Due</button>
+                                            <span>delekazzy1@gmail.com</span>
+                                            <span>NGN 100.00</span>
+                                            <span>#544664353</span>
+                                            <span>one time</span>
+                                            <span>18 August, 2021</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="w-full flex flex-col justify-center items-center h-40">
-                            <p class="br-text-sm text-center">You do not have any refund transactions yet.</p>
-                            <p class="br-text-sm text-center">Go ahead and share your payment pages and start selling.
-                            </p>
                         </div>
                     </div>
                 </div>
