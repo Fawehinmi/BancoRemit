@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BancoRemit - Customer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/output.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container px-0">
+        <div class="page-overlay fixed left-0 w-full h-screen top-0"></div>
+        <!-- popup for  -->
+        <div onclick="hideAllPopup(event)" class="popup-overlay flex hidden items-start justify-center py-6 fixed left-0 top-0 h-screen overflow-y-scroll w-full">
+            <div class="invite-user width-550 h-auto popup px-4 hidden z-90 shadow">
+                <p class="transfer-title py-2">Invite new users</p>
+
+                <p class="text-sm py-3">Enter the email address of the user you want to invite, and choose the role they should have.</p>
+                <div class="py-2">
+                    <label class="form-label">Email</label>
+                    <input type="number" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+
+                <div class="py-2">
+                    <label class="form-label" for="">Role</label>
+                    <select name="" id="" class="w-full rounded h-10 border border-gray-300 px-2 light-border">
+                       <option value="">Role</option>
+                   </select>
+                </div>
+                <div class="flex py-3">
+                    <div class="width-50">
+                        <p class="text-sm">Administrator</p>
+                    </div>
+                    <div class="width-50">
+                        <div class="text-sm">This is best for the business owners and executives.</div>
+                    </div>
+                </div>
+                <div class="flex py-3">
+                    <div class="width-50">
+                        <p class="text-sm">Operations</p>
+                    </div>
+                    <div class="width-50">
+                        <p class="text-sm">This is best for business owners and executives.</p>
+                    </div>
+                </div>
+
+                <div class="flex py-3">
+                    <div class="width-50">
+                        <p class="text-sm">Customer Support</p>
+                    </div>
+                    <div class="width-50">
+                        <p class="text-sm">This is best for staff that perform actions like refunds, disputes managements</p>
+                    </div>
+                </div>
+
+                <div class="flex py-3">
+                    <div class="width-50">
+                        <p class="text-sm">Developer/IT Specialist</p>
+                    </div>
+                    <div class="width-50">
+                        <p class="text-sm">This is best for developers working with the Flutterwave APIs.</p>
+                    </div>
+                </div>
+
+                <div class="flex py-3">
+                    <div class="width-50">
+                        <p class="text-sm">User</p>
+                    </div>
+                    <div class="width-50">
+                        <p class="text-sm">This is best for staff without the need to update data.</p>
+                    </div>
+                </div>
+
+                <div class="flex py-3">
+                    <div class="width-50">
+
+                    </div>
+                    <div class="width-50">
+                        <div class="flex py-3 justify-between py-2">
+                            <div class="flex">
+                                <button class="default-btn flex items-center br-text-xs relative">cancel</button>
+                                <button class="ml-4 save-btn flex items-center br-text-xs relative">Invite user</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="sidebar sticky top-0">
+            <div class="sidebar-navbar flex flex-col justify-center pl-6">
+                <a href="" class="sidebar-logo">
+                    Keazzy
+                </a>
+                <p class="br-text-sm font-normal">
+                    <span class="text-gray-400">Merchant ID:</span> 01234567
+                </p>
+            </div>
+            <div class="sidebar-nav">
+                <ul class="side-navlist">
+                    <a href="./overview.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/overview-icon.svg" width="20px"
+                                    alt="overview-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Overview
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Your Business</p>
+                    <a href="transaction-new.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/transaction-icon.svg" width="20px"
+                                    alt="transaction-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Transaction
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./customer-no-blocked.html" class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/customer-icon.svg" width="20px"
+                                    alt="customer-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Customer
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./balance.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/balance-icon.svg" width="20px"
+                                    alt="balance-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Balance
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./transfer.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/transfer-icon.svg" width="20px"
+                                    alt="transfer-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Transfers
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./sub-account.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/subaccount-icon.svg" width="20px"
+                                    alt="subaccount-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Subaccounts
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./card.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/card-icon.svg" width="20px"
+                                    alt="card-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Cards
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./chargeback.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/chargeback-icon.svg" width="20px"
+                                    alt="chargeback-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Chargebacks
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./airtime-and-dstv.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/airtimeAndDstv-icon.svg" width="20px"
+                                    alt="airtimeAndDstv-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Airtime & DSTV
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Collect Payments</p>
+                    <a href="./store.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/store-icon.svg" width="20px"
+                                    alt="store-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Store
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./payment-link.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/paymentLink-icon.svg" width="20px"
+                                    alt="paymentlink-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Payment links
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Billing Tools</p>
+                    <a href="./payment-plan.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/paymentplan-icon.svg" width="20px"
+                                    alt="paymentplan-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Payment plans
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./invoices.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/invoices-icon.svg" width="20px"
+                                    alt="invoices-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Invoices
+                            </span>
+                        </li>
+                    </a>
+                    <a href="#switch" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/switch-icon.svg" width="20px"
+                                    alt="switchmode-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Switch to test mode
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./refferal.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/referral-icon.svg" width="20px"
+                                    alt="refferals-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Refferals
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./setting.html" class="side-nav flex active-sidebar">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/setting-icon.svg" width="20px"
+                                    alt="setting-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Settings
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./pages/login.html#logout" style="margin-top: 32px;margin-bottom: 20px" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/signout-icon.svg" width="20px"
+                                    alt="signout-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Logout
+                            </span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-navbar flex items-center justify-between px-8">
+                <p class="menu-btn"></p>
+                <div class="searchbox relative">
+                    <span class="absolute icon">
+                        <img src="./assets/dashboard-icons/inner-content/search-icon.svg" width="13.67" alt="">
+                    </span>
+                    <input type="text" class="nav-search-bar br-text-xs font-normal pl-8 text-gray-400 br-input-2" placeholder="Search transaction, customers, cards, subaccounts and payment references.">
+                </div>
+                <button class="user-status flex items-center gap-1 py-2 px-3 font-light br-text-xs text-white rounded-full">
+                    You are live
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.17514 4.8326C6.06777 4.90419 5.99162 5.00225 5.93701 5.11146C5.84651 5.29247 5.6264 5.36584 5.44538 5.27534C5.26437 5.18483 5.191 4.96472 5.28151 4.78371C5.37958 4.58756 5.53245 4.38026 5.76862 4.22281C6.00708 4.06384 6.30855 3.97042 6.67804 3.97042C6.9994 3.97042 7.34689 4.06554 7.62314 4.27273C7.90918 4.48726 8.11326 4.82051 8.11326 5.25295C8.11326 5.75784 7.86274 6.09315 7.61161 6.33537C7.51916 6.42455 7.41696 6.50991 7.3288 6.58354C7.30361 6.60457 7.2794 6.6248 7.25707 6.64373C7.16788 6.71934 7.09819 6.78272 7.04448 6.8433V7.51265C7.04448 7.71503 6.88042 7.87909 6.67804 7.87909C6.47566 7.87909 6.3116 7.71503 6.3116 7.51265V6.79272C6.3116 6.67734 6.34427 6.54652 6.43241 6.43354C6.53936 6.29642 6.66955 6.181 6.78315 6.0847C6.81423 6.05835 6.84391 6.03355 6.87247 6.00967L6.87295 6.00927C6.9568 5.93918 7.03103 5.87713 7.10283 5.80788C7.28234 5.63474 7.38038 5.47756 7.38038 5.25295C7.38038 5.07466 7.30454 4.94987 7.18342 4.85903C7.05252 4.76085 6.86561 4.70329 6.67804 4.70329C6.43679 4.70329 6.28022 4.76255 6.17514 4.8326Z"
+                            fill="white" fill-opacity="0.7" />
+                        <path
+                            d="M7.1666 9.10055C7.1666 9.37039 6.94786 9.58914 6.67802 9.58914C6.40818 9.58914 6.18943 9.37039 6.18943 9.10055C6.18943 8.83072 6.40818 8.61197 6.67802 8.61197C6.94786 8.61197 7.1666 8.83072 7.1666 9.10055Z"
+                            fill="white" fill-opacity="0.7" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6.67802 1.2832C3.7098 1.2832 1.30359 3.68942 1.30359 6.65763C1.30359 9.62585 3.7098 12.0321 6.67802 12.0321C9.64623 12.0321 12.0524 9.62585 12.0524 6.65763C12.0524 3.68942 9.64623 1.2832 6.67802 1.2832ZM2.03647 6.65763C2.03647 4.09417 4.11456 2.01608 6.67802 2.01608C9.24148 2.01608 11.3196 4.09417 11.3196 6.65763C11.3196 9.22109 .24148 11.2992 6.67802 11.2992C4.11456 11.2992 2.03647 9.22109 2.03647 6.65763Z"
+                            fill="white" fill-opacity="0.7" />
+                    </svg>
+                </button>
+                <div class="navbar-account flex items-center gap-6">
+                    <button><img src="./assets/dashboard-icons/inner-content/notification-icon.svg" alt=""></button>
+                    <h5 class="br-text-primary nav-documentation-text">Documentaion</h5>
+                    <button><img src="./assets/dashboard-icons/inner-content/profile.svg" alt=""></button>
+                </div>
+            </div>
+            <div class="w-full h-auto px-5 py-5">
+                <div class="content-box bg-white h-auto pb-4 w-full">
+                    <div class="tab-container">
+                        <a href="#all-transactions" id="general-tab" class="tab-nav active">
+                            General
+                        </a>
+                        <a href="#refunds" id="bank-account-tab" class="tab-nav">
+                            Bank accounts
+                        </a>
+                        <a href="#all-transactions" id="users-tab" class="tab-nav">
+                           Users
+                        </a>
+                        <a href="#refunds" id="api-tab" class="tab-nav">
+                            Api
+                        </a>
+                        <a href="#all-transactions" id="webhooks-tab" class="tab-nav">
+                            Webhooks
+                        </a>
+                        <a href="#refunds" id="accouts-tab" class="tab-nav">
+                            Accounts
+                        </a>
+                    </div>
+                    <div class="tab-content general-tab">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">Personal information</p>
+                            <div class="flex items-center gap-2">
+                                <button class="primary-btn flex gap-2 items-center br-text-xs">
+                                    save
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="flex py-2">
+                            <div class="width-50">
+                                <div class="flex justify-between py-4">
+                                    <div>
+                                        <p class="text-sm">First Name</p>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                    <div>
+                                        <p class="text-sm">Last Name</p>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                </div>
+                                <div class="py-2">
+                                    <p class="text-sm">email</p>
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    <p class="text-xs">We'll use this email if we need to contact you about your account</p>
+                                </div>
+                                <div class="width-50 py-2">
+                                    <p class="text-sm">Phone number</p>
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                </div>
+                                <p class="text-sm pt-4 pb-2">Password</p>
+                                <div class="flex items-center gap-2">
+                                    <button class="default-btn flex gap-2 items-center br-text-xs">
+                                      Change password
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tab-container2 mt-2 b-top flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">Business information</p>
+                            <div class="flex items-center gap-2">
+                                <button class="primary-btn flex gap-2 items-center br-text-xs">
+                                    save
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="flex py-2">
+                            <div class="width-50 h-auto">
+                                <div class="flex justify-between py-4">
+                                    <div>
+                                        <p class="text-sm">Buisness Name</p>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                    <div>
+                                        <p class="text-sm">Buisness Phone Number</p>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                </div>
+                                <div class="flex justify-between py-4">
+                                    <div>
+                                        <p class="text-sm">Buisness email</p>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                    <div>
+                                        <p class="text-sm">Buisness address</p>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                </div>
+                                <div class="flex justify-between py-4">
+                                    <div class="mr-2 w-full">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm">support email address</p>
+                                            <button class="blue-button width-auto">what is this?</button>
+                                        </div>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                    <div class="ml-2 w-full">
+                                        <div class="flex justify-between ">
+                                            <p class="text-sm">support phone number</p>
+                                            <button class="blue-button width-auto">what is this?</button>
+                                        </div>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                </div>
+                                <div class="flex justify-between py-4">
+                                    <div class="pr-2 w-full">
+                                        <div class="flex justify-between">
+                                            <p class="text-sm">country</p>
+                                            <button class="blue-button width-auto">what is this?</button>
+                                        </div>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                    <div class="pl-2 w-full">
+                                        <div class="flex justify-between ">
+                                            <p class="text-sm">chargeback email</p>
+                                        </div>
+                                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="width-50 pt-10 mt-10 flex flex-col items-center h-full">
+                                <h1 class="upload-header">KE</h1>
+                                <p class="text-sm py-3">Upload buisness logo</p>
+                                <button class="default-btn">Upload image</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="tab-content bank-account-tab hidden">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">1 bank account(s)</p>
+                            <div class="flex items-center gap-2">
+
+                                <button class="primary-btn br-text-xs">
+                                + Add new Bank
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="w-full flex flex-col justify-center items-center h-40">
+                            <div class="table-container w-full">
+                                <div class="table w-full">
+                                    <table class="w-full">
+                                        <thead class="text-left bg-blue-50 py-3 px-3 p">
+                                            <th></th>
+                                            <th class="py-3">Bank name</th>
+                                            <th>Account no.</th>
+                                            <th>Account name (Per payment)</th>
+                                            <th>Currency</th>
+                                            <th></th>
+                                            <th></th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="ml-3 py-3"><input type="checkbox"></td>
+                                                <td>First city monument bank</td>
+                                                <td>4655588993</td>
+                                                <td>Balogun Abdulazeez Adeleke</td>
+                                                <td>Not available</td>
+                                                <td>Primary account</td>
+                                                <td><button class="edit-btn">Edit</button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="tab-content users-tab hidden">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">1 user(s)</p>
+                            <div class="flex items-center gap-2">
+
+                                <button class="primary-btn br-text-xs" onclick="showPopup('invite-user')">
+                                invite user
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="w-full flex flex-col justify-center items-center h-40">
+                            <div class="table-container w-full">
+                                <div class="table w-full">
+                                    <table class="w-full">
+                                        <thead class="text-left bg-blue-50 py-3 px-3 p">
+                                            <th class="py-2">Name</th>
+                                            <th>email address</th>
+                                            <th>Role</th>
+                                            <th>Last login</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>First city Monument Bank</td>
+                                                <td>delekaazy1@gmail.com</td>
+                                                <td>owner</td>
+                                                <td>Wednesday August 18, 2021</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="tab-content api-tab hidden">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">Live API keys</p>
+                            <div class="flex items-center gap-2">
+
+                                <button class="primary-btn flex gap-2 items-center br-text-xs">
+                                    Generate new keys
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="w-full">
+                            <div class="pt-4">
+                                <p class="text-sm">Public keys</p>
+                                <div class="relative width-70">
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border relative" disabled value="FLWPUBK-ec612c0cb5113ead0a0c3d84302e1d1d-X" />
+                                    <button class="py-1 mt-1 primary-btn absolute right-10 h-auto">copy key</button>
+                                </div>
+
+                            </div>
+                            <div class="pt-4">
+                                <p class="text-sm">Secret keys</p>
+                                <div class="relative width-70">
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border relative" disabled value="FLWPUBK-ec612c0cb5113ead0a0c3d84302e1d1d-X" />
+                                    <button class="py-1 mt-1 primary-btn absolute right-10 h-auto">copy key</button>
+                                </div>
+
+                            </div>
+                            <div class="pt-4">
+                                <p class="text-sm">Encryption keys</p>
+                                <div class="relative width-70">
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border relative" disabled value="FLWPUBK-ec612c0cb5113ead0a0c3d84302e1d1d-X" />
+                                    <button class="py-1 mt-1 primary-btn absolute right-10 h-auto">copy key</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="tab-content webhooks-tab hidden">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">Live Webhooks</p>
+                            <div class="flex items-center gap-2">
+
+                                <button class="primary-btn flex gap-2 items-center br-text-xs">
+                                   
+                                   save
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="flex py-2">
+                            <div class="width-50">
+
+                                <div class="my-3">
+                                    <p class="text-sm py-3">URL</p>
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                </div>
+                                <div class="ml-2 w-full  my-3">
+                                    <div class="flex justify-between ">
+                                        <p class="text-sm py-4">Secret hash</p>
+                                        <button class="blue-button width-auto">what is a secret hash?</button>
+                                    </div>
+                                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                                </div>
+                                <div class="py-3 flex  items-center">
+                                    <input type="checkbox" class="" name="" id="">
+                                    <p class="text-sm px-3">Receive webhook response in JSON format</p>
+                                </div>
+                                <div class="py-3 flex  items-center">
+                                    <input type="checkbox" class="mr-3" name="" id="">
+                                    <p class="text-sm px-3">Enable webhook retires</p>
+                                </div>
+                                <div class="py-3 flex  items-center">
+                                    <input type="checkbox" class="mr-3" name="" id="">
+                                    <p class="text-sm px-3">Enable failed transaction webhook</p>
+                                </div>
+                                <div class="py-3 flex  items-center">
+                                    <input type="checkbox" class="mr-3" name="" id="">
+                                    <p class="text-sm px-3">Enable v3 webhooks</p>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="tab-content accouts-tab hidden">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">Preferences</p>
+                            <div class="flex items-center gap-2">
+
+                                <button class="primary-btn flex gap-2 items-center br-text-xs">
+                                    Save
+                                </button>
+
+                            </div>
+                        </div>
+
+                        <div class="w-full">
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm">Who should pay the transaction fees</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Make customers pay transaction fees
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            charge me for the transaction fees
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">Transaction Emails</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Email me for every transactions
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">Transaction Emails (Customers)</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Email customers for every transactions
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">What method of payment do you accept</p>
+                                </div>
+                                <div class="width-70">
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable Dashboard payment option
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable card payments
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable paypal
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable bank payments
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable barter payments
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <div class="flex items-center">
+                                            <p class="text-sm px-4">
+                                                Enable mobile money
+                                            </p>
+                                            <input type="text" class="w-30 rounded h-10 border border-gray-300 px-2 light-border" placeholder="Mobile money" />
+
+                                        </div>
+
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable Visa QR
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable Paga
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable 1 voucher
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable NQR
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm">Send notification emails to other users</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Send to the buisness email address only
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Send to all dashboard users
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Send to specific users
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">How do you want to get your earnings</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Settle to bank account
+                                        </p>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input type="radio" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Settle to wallet(Available balance)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">Two Factor Authentication for Transfers</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable Two Factor Authentication for Transfers
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">Transfer Reciepts</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Send Email reciept for successful transfers
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm">Two Factor Authentication For Login</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable Two Factor Authentication for Login
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm">Subscription Emails</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Allow customers cancel subscriptions.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex py-4">
+                                <div class="width-30">
+                                    <p class="text-sm ">Balance History</p>
+                                </div>
+                                <div>
+                                    <div class="flex items-center">
+                                        <input type="checkbox" name="" id="">
+                                        <p class="text-sm px-4">
+                                            Enable balance history for your ledger balance
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+<script src="./js/interact.js"></script>
+
+</html>

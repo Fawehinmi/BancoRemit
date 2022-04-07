@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BancoRemit - Payment Link</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/output.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container px-0">
+        <div class="page-overlay fixed left-0 w-full h-screen top-0"></div>
+        <!-- popup for  -->
+        <div onclick="hideAllPopup(event)" class="popup-overlay flex hidden items-center justify-center py-6 fixed left-0 top-0 h-screen overflow-y-scroll w-full">
+
+
+            <div class="payment-link-3 popup px-4 hidden z-90 shadow">
+                <p class="transfer-title py-2">Create new donation link</p>
+                <div class="py-2">
+                    <label class="form-label" for="chooseBalance">Paget Title*</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <label for="">Amount</label>
+                <div class="flex py-2">
+                    <select name="currency" id="currency-select" class="rounded h-10 border border-gray-300 px-2 light-border">
+                    <option value="NGN">NGN</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CHF">CHF</option>
+
+                </select>
+                    <input type="number" value="0.00" class="w-full rounded h-10 border border-gray-300 px-2 ml-2 light-border" />
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="">Description</label>
+                    <input type="text" class="w-full rounded h-40 border border-gray-300 px-2 p-5 light-border" placeholder="NGN" />
+                    <p class="text-xs">255 Character left</p>
+                </div>
+
+                <div class="py-2">
+                    <label class="form-label" for="Description">Set a background image</label>
+                    <input placeholder="optional" type="image" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="">Donation Website</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <div class="pt-2 pb-2">
+                    <label class="form-label" for="">Donation Phone number</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+
+                    <p class="text-xs">This is phone number in which your customers can use to reach you.</p>
+                </div>
+
+
+                <div class="flex justify-between pt-3 pb-2 pt-2">
+
+                    <button onclick="hidePopup()" class="flex items-center br-text-xs relative">Go back</button>
+                    <div class="flex">
+                        <button onclick="hidePopup()" class="mx-4 default-btn flex items-center br-text-xs relative">cancel</button>
+                        <button onclick="hidePopup()" class=" save-btn flex items-center br-text-xs relative">save</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="payment-link-2 popup px-4 hidden z-90 shadow">
+                <p class="transfer-title py-2">Create new subscription link</p>
+                <div class="py-2">
+                    <label class="form-label" for="chooseBalance">Payment link name</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <label for="">Amount</label>
+                <div class="flex py-2">
+                    <select name="currency" id="currency-select" class="rounded h-10 border border-gray-300 px-2 light-border">
+                    <option value="NGN">NGN</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CHF">CHF</option>
+
+                </select>
+                    <input type="number" value="0.00" class="w-full rounded h-10 border border-gray-300 px-2 ml-2 light-border" />
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="">Description</label>
+                    <input type="text" class="w-full rounded h-40 border border-gray-300 px-2 p-5 light-border" placeholder="NGN" />
+                </div>
+                <div class=" py-2">
+                    <label class="form-label" for="">interval</label>
+                    <select name="currency" id="currency-select" class="w-full rounded h-10 border border-gray-300 px-2 light-border">
+                        <option value="">Interval</option>
+                </select>
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="">No of times to charge a subscriber</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+
+                <div class="flex justify-center pt-4">
+                    <button class="flex justify-center">
+                        <span class="link-a">show more options</span>
+                    </button>
+                </div>
+
+
+                <!--                 
+                <div class="py-2 hidden custom-url"></div> -->
+
+                <div class="flex justify-between pt-8 pb-2 pt-2">
+
+                    <button onclick="hidePopup()" class="flex items-center br-text-xs relative">Go back</button>
+                    <div class="flex">
+                        <button onclick="hidePopup()" class="mx-4 default-btn flex items-center br-text-xs relative">cancel</button>
+                        <button onclick="hidePopup()" class=" save-btn flex items-center br-text-xs relative">save</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="payment-link-1 popup px-4 hidden z-90 shadow">
+                <p class="transfer-title py-2">Create new payment Link</p>
+                <div class="py-2">
+                    <label class="form-label" for="chooseBalance">Payment link name</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <label for="">Amount</label>
+                <div class="flex py-2">
+                    <select name="currency" id="currency-select" class="rounded h-10 border border-gray-300 px-2 light-border">
+                    <option value="NGN">NGN</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CHF">CHF</option>
+
+                </select>
+                    <input type="number" value="0.00" class="w-full rounded h-10 border border-gray-300 px-2 ml-2 light-border" />
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="">Description</label>
+                    <input type="text" class="w-full rounded h-40 border border-gray-300 px-2 p-5 light-border" placeholder="NGN" />
+                </div>
+                <div class="flex justify-center pt-4">
+                    <button class="flex justify-center" onclick="showCustomUrl()">
+                        <span class="link-a">show more options</span>
+                    </button>
+                </div>
+                <div class="py-2 hidden custom-url">
+
+                    <div class="py-2">
+                        <label class="form-label" for="Description">Use a custom URL</label>
+                        <input placeholder="optional" type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                    </div>
+                    <div class=" py-2">
+                        <label class="form-label" for="">Use a custom URL</label>
+                        <select name="currency" id="currency-select" class="w-full rounded h-10 border border-gray-300 px-2 light-border">
+                            <option value="">Select currencies</option>
+                            <option value="NGN">NGN</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="CHF">CHF</option>
+                    </select>
+                    </div>
+                    <div class="py-2">
+                        <label class="form-label text-sm" for="">Redirect after payment</label>
+                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                    </div>
+
+                    <div class="py-2">
+                        <label class="form-label text-sm" for="">split payment with subaccount</label>
+                        <select name="currency" id="" class="w-full rounded h-10 border border-gray-300 px-2 light-border">
+                            <option value="">Select subaccount to split payment with</option>
+                    </select>
+                    </div>
+                    <p class="text-xs">This allows you to share payments recieved from this link with a subaccount</p>
+                    <div class="py-2">
+                        <label class="form-label text-sm" for="">Collect extra information</label>
+                        <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                    </div>
+
+                </div>
+
+                <div class="flex justify-between pt-8 pb-2 pt-2">
+
+                    <button onclick="hidePopup()" class="flex items-center br-text-xs relative">Go back</button>
+                    <div class="flex">
+                        <button onclick="hidePopup()" class="mx-4 default-btn flex items-center br-text-xs relative">cancel</button>
+                        <button onclick="hidePopup()" class=" save-btn flex items-center br-text-xs relative">save</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="popup hidden payment-link-popup z-90 shadow ...">
+                <p class=" flex items-center px-5 py-4 br-text-sm transfer-title">Create New Category</p>
+
+                <div class="single-transfer py-8" onclick="showLink1()">
+                    <div class="faded-circle">
+
+                    </div>
+                    <div class="">
+                        <p class="link-header">Single Charge</p>
+                        <p class="link-body-1">Single charge allows you create payment links for your customer</p>
+                    </div>
+                </div>
+                <div class="single-transfer" onclick="showLink2()">
+                    <div class=" faded-circle ">
+
+                    </div>
+                    <div>
+                        <p class="subscription-header ">Subscription</p>
+                        <p class="subscription-body-1 ">Single charge allows you create payment links for your customer</p>
+                    </div>
+                </div>
+                <div class="single-transfer py-8 " onclick="showLink3() ">
+                    <div class="faded-circle ">
+
+                    </div>
+                    <div class=" ">
+                        <p class="donation-header ">Donation page</p>
+                        <p class="donation-body-1 ">Single charge allows you create payment links for your customer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar sticky top-0 ">
+            <div class="sidebar-navbar flex flex-col justify-center pl-6 ">
+                <a href=" " class="sidebar-logo ">
+                    Keazzy
+                </a>
+                <p class="br-text-sm font-normal ">
+                    <span class="text-gray-400 ">Merchant ID:</span> 01234567
+                </p>
+            </div>
+            <div class="sidebar-nav ">
+                <ul class="side-navlist ">
+                    <a href="./overview.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/overview-icon.svg " width="20px "
+                                    alt="overview-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Overview
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0 ">Your Business</p>
+                    <a href="transaction-new.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/transaction-icon.svg " width="20px "
+                                    alt="transaction-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Transaction
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./customer-no-blocked.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/customer-icon.svg " width="20px "
+                                    alt="customer-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Customer
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./balance.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/balance-icon.svg " width="20px "
+                                    alt="balance-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Balance
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./transfer.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/transfer-icon.svg " width="20px "
+                                    alt="transfer-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Transfers
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./sub-account.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/subaccount-icon.svg " width="20px "
+                                    alt="subaccount-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Subaccounts
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./card.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/card-icon.svg " width="20px "
+                                    alt="card-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Cards
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./chargeback.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/chargeback-icon.svg " width="20px "
+                                    alt="chargeback-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Chargebacks
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./airtime-and-dstv.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/airtimeAndDstv-icon.svg " width="20px "
+                                    alt="airtimeAndDstv-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Airtime & DSTV
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0 ">Collect Payments</p>
+                    <a href="./store.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/store-icon.svg " width="20px "
+                                    alt="store-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Store
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./payment-link.html " class="side-nav flex">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/paymentLink-icon.svg " width="20px "
+                                    alt="paymentlink-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Payment links
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0 ">Billing Tools</p>
+                    <a href="./payment-plan.html " class="side-nav flex   active-sidebar ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/paymentplan-icon.svg " width="20px "
+                                    alt="paymentplan-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Payment plans
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./invoices.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/invoices-icon.svg " width="20px "
+                                    alt="invoices-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Invoices
+                            </span>
+                        </li>
+                    </a>
+                    <a href="#switch " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/switch-icon.svg " width="20px "
+                                    alt="switchmode-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Switch to test mode
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./refferal.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/referral-icon.svg " width="20px "
+                                    alt="refferals-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Refferals
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./setting.html " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/setting-icon.svg " width="20px "
+                                    alt="setting-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Settings
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./pages/login.html#logout " style="margin-top: 32px;margin-bottom: 20px " class="side-nav flex ">
+                        <li class="flex items-center br-nav-gap ">
+                            <span class="nav-icon ">
+                                <img src="./assets/dashboard-icons/signout-icon.svg " width="20px "
+                                    alt="signout-icon-not-found ">
+                            </span>
+                            <span class="nav-text br-text-xs ">
+                                Logout
+                            </span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="main ">
+            <div class="main-navbar flex items-center justify-between px-8 ">
+                <p class="menu-btn "></p>
+                <div class="searchbox relative ">
+                    <span class="absolute icon ">
+                        <img src="./assets/dashboard-icons/inner-content/search-icon.svg " width="13.67 " alt=" ">
+                    </span>
+                    <input type="text " class="nav-search-bar br-text-xs font-normal pl-8 text-gray-400 br-input-2 " placeholder="Search transaction, customers, cards, subaccounts and payment references. ">
+                </div>
+                <button class="user-status flex items-center gap-1 py-2 px-3 font-light br-text-xs text-white rounded-full ">
+                    You are live
+                    <svg width="13 " height="13 " viewBox="0 0 13 13 " fill="none " xmlns="http://www.w3.org/2000/svg ">
+                        <path
+                            d="M6.17514 4.8326C6.06777 4.90419 5.99162 5.00225 5.93701 5.11146C5.84651 5.29247 5.6264 5.36584 5.44538 5.27534C5.26437 5.18483 5.191 4.96472 5.28151 4.78371C5.37958 4.58756 5.53245 4.38026 5.76862 4.22281C6.00708 4.06384
+                    6.30855 3.97042 6.67804 3.97042C6.9994 3.97042 7.34689 4.06554 7.62314 4.27273C7.90918 4.48726 8.11326 4.82051 8.11326 5.25295C8.11326 5.75784 7.86274 6.09315 7.61161 6.33537C7.51916 6.42455 7.41696 6.50991 7.3288 6.58354C7.30361 6.60457
+                    7.2794 6.6248 7.25707 6.64373C7.16788 6.71934 7.09819 6.78272 7.04448 6.8433V7.51265C7.04448 7.71503 6.88042 7.87909 6.67804 7.87909C6.47566 7.87909 6.3116 7.71503 6.3116 7.51265V6.79272C6.3116 6.67734 6.34427 6.54652 6.43241 6.43354C6.53936
+                    6.29642 6.66955 6.181 6.78315 6.0847C6.81423 6.05835 6.84391 6.03355 6.87247 6.00967L6.87295 6.00927C6.9568 5.93918 7.03103 5.87713 7.10283 5.80788C7.28234 5.63474 7.38038 5.47756 7.38038 5.25295C7.38038 5.07466 7.30454 4.94987 7.18342
+                    4.85903C7.05252 4.76085 6.86561 4.70329 6.67804 4.70329C6.43679 4.70329 6.28022 4.76255 6.17514 4.8326Z "
+                            fill="white " fill-opacity="0.7 " />
+                        <path
+                            d="M7.1666 9.10055C7.1666 9.37039 6.94786 9.58914 6.67802 9.58914C6.40818 9.58914 6.18943 9.37039 6.18943 9.10055C6.18943 8.83072 6.40818 8.61197 6.67802 8.61197C6.94786 8.61197 7.1666 8.83072 7.1666 9.10055Z "
+                            fill="white " fill-opacity="0.7 " />
+                        <path fill-rule="evenodd " clip-rule="evenodd "
+                            d="M6.67802 1.2832C3.7098 1.2832 1.30359 3.68942 1.30359 6.65763C1.30359 9.62585 3.7098 12.0321 6.67802 12.0321C9.64623 12.0321 12.0524 9.62585 12.0524 6.65763C12.0524 3.68942 9.64623 1.2832 6.67802 1.2832ZM2.03647 6.65763C2.03647
+                    4.09417 4.11456 2.01608 6.67802 2.01608C9.24148 2.01608 11.3196 4.09417 11.3196 6.65763C11.3196 9.22109 .24148 11.2992 6.67802 11.2992C4.11456 11.2992 2.03647 9.22109 2.03647 6.65763Z "
+                            fill="white " fill-opacity="0.7 " />
+                    </svg>
+                </button>
+                <div class="navbar-account flex items-center gap-6 ">
+                    <button><img src="./assets/dashboard-icons/inner-content/notification-icon.svg " alt=" "></button>
+                    <h5 class="br-text-primary nav-documentation-text ">Documentaion</h5>
+                    <button><img src="./assets/dashboard-icons/inner-content/profile.svg " alt=" "></button>
+                </div>
+            </div>
+            <div class="w-full h-auto px-5 py-5 ">
+                <div class="content-box bg-white h-auto pb-4 w-full">
+                    <div class="tab-container">
+                        <a href="#all-transactions" id="transaction-tab" class="tab-nav active">
+                            Payment plans
+                        </a>
+                        <a href="#refunds" id="subscriber-tab" class="tab-nav">
+                            Subscribers
+                        </a>
+                    </div>
+                    <div class="tab-content transaction-tab">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary">No payment plans</p>
+                            <div class="flex items-center gap-4">
+                                <button class="primary-btn flex items-center gap-1">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="white"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8 4C8.27614 4 8.5 4.22386 8.5 4.5V7.5H11.5C11.7761 7.5 12 7.72386 12 8C12 8.27614 11.7761 8.5 11.5 8.5H8.5V11.5C8.5 11.7761 8.27614 12 8 12C7.72386 12 7.5 11.7761 7.5 11.5V8.5H4.5C4.22386 8.5 4 8.27614 4 8C4 7.72386 4.22386 7.5 4.5 7.5H7.5V4.5C7.5 4.22386 7.72386 4 8 4Z"
+                                            fill="white" />
+                                    </svg>
+                                    <p class="text-white br-text-xs">Create payment plan</p>
+                                </button>
+
+                            </div>
+                        </div>
+                        <div class="w-full flex flex-col justify-center items-center h-40">
+                            <table class="w-full">
+                                <thead>
+                                    <!-- <tr> -->
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Plan ID
+                                    </th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Plan Name</th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Amount</th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Interval
+                                    </th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Date created
+                                    </th>
+                                    <!-- </tr> -->
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-5">Jerome Bell</td>
+                                        <td class="py-5">Personal goal</td>
+                                        <td class="py-5">NGNO</td>
+                                        <td class="py-5">Hourly</td>
+                                        <td class="py-5">Wednesday August 18, 2021</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-content subscriber-tab hidden">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary br-text-sm">1 payment plan</p>
+                            <div class="flex items-center gap-2">
+                                <button class="primary-btn flex gap-2 items-center br-text-xs">
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="white"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M8 4C8.27614 4 8.5 4.22386 8.5 4.5V7.5H11.5C11.7761 7.5 12 7.72386 12 8C12 8.27614 11.7761 8.5 11.5 8.5H8.5V11.5C8.5 11.7761 8.27614 12 8 12C7.72386 12 7.5 11.7761 7.5 11.5V8.5H4.5C4.22386 8.5 4 8.27614 4 8C4 7.72386 4.22386 7.5 4.5 7.5H7.5V4.5C7.5 4.22386 7.72386 4 8 4Z"
+                                            fill="white" />
+                                    </svg>
+                                    Create payment link
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="w-full flex flex-col justify-center items-center h-40">
+                            <table class="w-full">
+                                <thead>
+                                    <!-- <tr> -->
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Status
+                                    </th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Plan</th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">User</th>
+                                    <th style="width: calc(100% / 6);text-align: left;" class="bg-blue-50">Subscribed on
+                                    </th>
+                                    <!-- </tr> -->
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-5">Jerome Bell</td>
+                                        <td class="py-5">Satander</td>
+                                        <td class="py-5">28766941</td>
+                                        <td class="py-5">Wednesday, Aug 18, 2021</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-5">Jerome Bell</td>
+                                        <td class="py-5">Satander</td>
+                                        <td class="py-5">28766941</td>
+                                        <td class="py-5">Wednesday, Aug 18, 2021</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com "></script>
+</body>
+<script src="./js/interact.js "></script>
+
+</html>

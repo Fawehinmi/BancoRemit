@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BancoRemit - Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.7/swiper-bundle.css" integrity="sha512-g0BdMh4zEp4DuzHdoenUitpFx195QZfSFq5sd04kXZLwz5F9pUlGqwk+1jlvBBFGOnTCt0b5FsmQyl+5v2fxWw==" crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/output.css" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="dashboard-container px-0">
+        <div class="sidebar sticky top-0">
+            <div class="sidebar-navbar flex flex-col justify-center pl-6">
+                <a href="" class="sidebar-logo">
+                    Keazzy
+                </a>
+                <p class="br-text-sm font-normal">
+                    <span class="text-gray-400">Merchant ID:</span> 01234567
+                </p>
+            </div>
+            <div class="sidebar-nav">
+                <ul class="side-navlist">
+                    <a href="./overview.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/overview-icon.svg" width="20px"
+                                    alt="overview-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Overview
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Your Business</p>
+                    <a href="transaction-new.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/transaction-icon.svg" width="20px"
+                                    alt="transaction-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Transaction
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./customer.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/customer-icon.svg" width="20px"
+                                    alt="customer-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Customer
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./balance.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/balance-icon.svg" width="20px"
+                                    alt="balance-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Balance
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./transfer.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/transfer-icon.svg" width="20px"
+                                    alt="transfer-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Transfers
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./sub-account.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/subaccount-icon.svg" width="20px"
+                                    alt="subaccount-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Subaccounts
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./no-card.html" class="side-nav active-sidebar flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/card-icon.svg" width="20px"
+                                    alt="card-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Cards
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./chargeback.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/chargeback-icon.svg" width="20px"
+                                    alt="chargeback-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Chargebacks
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./airtime-and-dstv.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/airtimeAndDstv-icon.svg" width="20px"
+                                    alt="airtimeAndDstv-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Airtime & DSTV
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Collect Payments</p>
+                    <a href="./store.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/store-icon.svg" width="20px"
+                                    alt="store-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Store
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./payment-link.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/paymentLink-icon.svg" width="20px"
+                                    alt="paymentlink-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Payment links
+                            </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">Billing Tools</p>
+                    <a href="./payment-plan.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/paymentplan-icon.svg" width="20px"
+                                    alt="paymentplan-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Payment plans
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./invoices.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/invoices-icon.svg" width="20px"
+                                    alt="invoices-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Invoices
+                            </span>
+                        </li>
+                    </a>
+                    <a href="#switch" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/switch-icon.svg" width="20px"
+                                    alt="switchmode-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Switch to test mode
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./refferal.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/referral-icon.svg" width="20px"
+                                    alt="refferals-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Refferals
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./setting.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/setting-icon.svg" width="20px"
+                                    alt="setting-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Settings
+                            </span>
+                        </li>
+                    </a>
+                    <a href="./pages/login.html#logout" style="margin-top: 32px;margin-bottom: 20px" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                                <img src="./assets/dashboard-icons/signout-icon.svg" width="20px"
+                                    alt="signout-icon-not-found">
+                            </span>
+                            <span class="nav-text br-text-xs">
+                                Logout
+                            </span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main-navbar flex items-center justify-between px-8">
+                <p class="menu-btn"></p>
+                <div class="searchbox relative">
+                    <span class="absolute icon">
+                        <img src="./assets/dashboard-icons/inner-content/search-icon.svg" width="13.67" alt="">
+                    </span>
+                    <input type="text" class="nav-search-bar br-text-xs font-normal pl-8 text-gray-400 br-input-2" placeholder="Search transaction, customers, cards, subaccounts and payment references.">
+                </div>
+                <button class="user-status flex items-center gap-1 py-2 px-3 font-light br-text-xs text-white rounded-full">
+                    You are live
+                    <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M6.17514 4.8326C6.06777 4.90419 5.99162 5.00225 5.93701 5.11146C5.84651 5.29247 5.6264 5.36584 5.44538 5.27534C5.26437 5.18483 5.191 4.96472 5.28151 4.78371C5.37958 4.58756 5.53245 4.38026 5.76862 4.22281C6.00708 4.06384 6.30855 3.97042 6.67804 3.97042C6.9994 3.97042 7.34689 4.06554 7.62314 4.27273C7.90918 4.48726 8.11326 4.82051 8.11326 5.25295C8.11326 5.75784 7.86274 6.09315 7.61161 6.33537C7.51916 6.42455 7.41696 6.50991 7.3288 6.58354C7.30361 6.60457 7.2794 6.6248 7.25707 6.64373C7.16788 6.71934 7.09819 6.78272 7.04448 6.8433V7.51265C7.04448 7.71503 6.88042 7.87909 6.67804 7.87909C6.47566 7.87909 6.3116 7.71503 6.3116 7.51265V6.79272C6.3116 6.67734 6.34427 6.54652 6.43241 6.43354C6.53936 6.29642 6.66955 6.181 6.78315 6.0847C6.81423 6.05835 6.84391 6.03355 6.87247 6.00967L6.87295 6.00927C6.9568 5.93918 7.03103 5.87713 7.10283 5.80788C7.28234 5.63474 7.38038 5.47756 7.38038 5.25295C7.38038 5.07466 7.30454 4.94987 7.18342 4.85903C7.05252 4.76085 6.86561 4.70329 6.67804 4.70329C6.43679 4.70329 6.28022 4.76255 6.17514 4.8326Z"
+                            fill="white" fill-opacity="0.7" />
+                        <path
+                            d="M7.1666 9.10055C7.1666 9.37039 6.94786 9.58914 6.67802 9.58914C6.40818 9.58914 6.18943 9.37039 6.18943 9.10055C6.18943 8.83072 6.40818 8.61197 6.67802 8.61197C6.94786 8.61197 7.1666 8.83072 7.1666 9.10055Z"
+                            fill="white" fill-opacity="0.7" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M6.67802 1.2832C3.7098 1.2832 1.30359 3.68942 1.30359 6.65763C1.30359 9.62585 3.7098 12.0321 6.67802 12.0321C9.64623 12.0321 12.0524 9.62585 12.0524 6.65763C12.0524 3.68942 9.64623 1.2832 6.67802 1.2832ZM2.03647 6.65763C2.03647 4.09417 4.11456 2.01608 6.67802 2.01608C9.24148 2.01608 11.3196 4.09417 11.3196 6.65763C11.3196 9.22109 .24148 11.2992 6.67802 11.2992C4.11456 11.2992 2.03647 9.22109 2.03647 6.65763Z"
+                            fill="white" fill-opacity="0.7" />
+                    </svg>
+                </button>
+                <div class="navbar-account flex items-center gap-6">
+                    <button><img src="./assets/dashboard-icons/inner-content/notification-icon.svg" alt=""></button>
+                    <h5 class="br-text-primary nav-documentation-text">Documentaion</h5>
+                    <button><img src="./assets/dashboard-icons/inner-content/profile.svg" alt=""></button>
+                </div>
+            </div>
+            <div class="w-full h-auto px-5 py-5">
+                <div class="content-box2 bg-white h-auto py-6 pb-4 w-full">
+
+                    <div class="tab-container flex justify-between">
+                        <p>Card</p>
+                        <div class="flex">
+                            <button class="default-btn flex items-center gap-2 mx-3 ">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M2.75216 1.3335H13.2479C14.0318 1.3335 14.6667 1.98753 14.6667 2.795V3.816C14.6667 4.20771 14.5136 4.58387 14.2418 4.85821L9.90515 9.24484C9.83033 9.32121 9.72874 9.36363 9.62372 9.36292L5.99266 9.35161C5.88215 9.35161 5.77713 9.30424 5.70163 9.22151L1.71639 4.83842C1.46997 4.56761 1.33337 4.20984 1.33337 3.83863V2.79571C1.33337 1.98824 1.96829 1.3335 2.75216 1.3335ZM6.18672 10.5495L9.4231 10.5594C9.6249 10.5601 9.78827 10.7291 9.78827 10.9362V12.7569C9.78827 12.9648 9.67021 13.1529 9.48625 13.2399L6.54846 14.6193C6.47982 14.6512 6.40706 14.6667 6.3343 14.6667C6.23752 14.6667 6.14073 14.6384 6.05631 14.5826C5.90873 14.485 5.8195 14.3167 5.8195 14.1364V10.9263C5.8195 10.7178 5.98424 10.5488 6.18672 10.5495Z"
+                                        fill="#363949" />
+                                </svg>
+                                <p class=" md:flex">Filter by</p>
+                            </button>
+                            <button class="default-btn flex items-center gap-2 mx-3">
+                                <p class=" md:flex">More Actions</p>
+                            </button>
+                            <button class="primary-btn flex items-center gap-2 mx-3" onclick="addCardPopup()">
+                                <p class=" md:flex">Create card</p>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Slider main container -->
+                    <div class="swiper my-3">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper flex gap-3">
+                            <!-- Slides -->
+                            <div class="swiper-slide">
+                                <h5 class="card-no">**** **** **** ****</h5>
+                                <div class="exp-date">
+                                    <p>Exp Date</p>
+                                    <h5 class="desc">09 / 20</h5>
+                                </div>
+                                <div class="cvv">
+                                    <p>Exp Date</p>
+                                    <h5 class="desc">09 / 20</h5>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <h5 class="card-no">1323 5522 8989 4455</h5>
+                                <div class="exp-date">
+                                    <p>Exp Date</p>
+                                    <h5 class="desc">09 / 20</h5>
+                                </div>
+                                <div class="cvv">
+                                    <p>Exp Date</p>
+                                    <h5 class="desc">09 / 20</h5>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <h5 class="card-no">1323 5522 8989 4455</h5>
+                                <div class="exp-date">
+                                    <p>Exp Date</p>
+                                    <h5 class="desc">09 / 20</h5>
+                                </div>
+                                <div class="cvv">
+                                    <p>Exp Date</p>
+                                    <h5 class="desc">09 / 20</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</body>
+<script src="./js/interact.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.0.7/swiper-bundle.min.js"
+    integrity="sha512-WlN87oHzYKO5YOmINf1+pSkbt4gm+lOro4fiSTCjII4ykJe/ycHKIaa9b2l9OMkbqEA4NxwTXAGFjSXgqEh19w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    let swiper = new Swiper('.swiper', {
+        width: "100%",
+        speed: 5,
+        spaceBetween: 8,
+        slidesPerView: 3,
+        direction: "horizontal"
+    });
+    // swiper = document.querySelector('.swiper').swiper;
+
+    // Now you can use all slider methods like
+    swiper.slideNext(); -->
+</script>
+
+</html>

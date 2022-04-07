@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>BancoRemit - Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/output.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <div class="dashboard-container px-0">
+        <div class="page-overlay fixed left-0 w-full h-screen top-0"></div>
+        <!-- popup for  -->
+        <div onclick="hideAllPopup(event)" class="popup-overlay flex hidden items-center justify-center py-6 fixed left-0 top-0 h-screen overflow-y-scroll w-full">
+            <div class="transfer-popup-2 popup px-4 hidden z-90 shadow">
+                <p class="transfer-title py-2">Single Transfer</p>
+                <div class="py-2">
+                    <label class="form-label" for="chooseBalance">choose balance to transfer from</label>
+                    <input type="number" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <label for="">How much do you want to send</label>
+                <div class="flex py-2">
+                    <select name="currency" id="currency-select" class="rounded h-10 border border-gray-300 px-2 light-border">
+                    <option value="NGN">NGN</option>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="CHF">CHF</option>
+
+                </select>
+                    <input type="number" value="0.00" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="bankName">Bank Name</label>
+                    <select name="currency" id="currency-select" class="rounded w-full h-10 border border-gray-300 px-2 light-border">
+                    <option value="">---Bank Name---</option>
+                    
+                </select>
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="Account number">Account Number</label>
+                    <input type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <div class="py-2">
+                    <label class="form-label" for="Description">Description</label>
+                    <input placeholder="optional" type="text" class="w-full rounded h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <p class="text-sm">You'll be charged NGN 0.00 for this traansaction</p>
+                <div class="flex justify-between py-2">
+
+                    <button class="flex items-center br-text-xs relative">Go back</button>
+                    <div class="flex">
+                        <button onclick="hidePopup()" class="mx-4 default-btn flex items-center br-text-xs relative">cancel</button>
+                        <button onclick="hidePopup()" class=" save-btn flex items-center br-text-xs relative">save</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="popup hidden transfer-popup-1 z-90 shadow ...">
+                <p class=" flex items-center px-5 py-4 br-text-sm transfer-title">Start New Transfer</p>
+
+                <div class="single-transfer py-8" onclick="showTransferPopup2()">
+                    <div class="faded-circle">
+
+                    </div>
+                    <div class="">
+                        <p class="transfer-header">Single Transfer</p>
+                        <p class="transfer-body-1">Single transfer allows you transfer to one account at a time.</p>
+                    </div>
+                </div>
+                <div class="bulk-transfer">
+                    <div class="faded-circle">
+
+                    </div>
+                    <div>
+                        <p class="transfer-header"> Bulk Transfer</p>
+                        <p class="transfer-body-1">Bulk transfers allows you transfer to multiple accounts at a time.</p>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="popup hidden transaction-filter-popup z-90 shadow ...">
+                <div class="top flex items-center px-5 br-text-sm">Date</div>
+                <div class="flex datetime border-b border-gray-100 justify-between gap-2 py-4 br-text-xs px-5 br-text-sm">
+                    <a href="#">Today</a>
+                    <a href="#">Last 7 days</a>
+                    <a href="#" class="active">30 Days</a>
+                    <a href="#">1 year</a>
+                </div>
+                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
+                    <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
+                    <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <div class="top flex items-center px-5 br-text-sm">Status</div>
+                <div class="flex items-center gap-x-5 gap-y-1 py-3 flex-wrap px-5 br-text-sm">
+                    <span><input type="checkbox" /> Sucessful</span>
+                    <span><input type="checkbox" /> Abandoned</span>
+                    <span><input type="checkbox" /> Pending</span>
+                    <span><input type="checkbox" /> Cancelled</span>
+                    <span><input type="checkbox" /> Voided</span>
+                </div>
+                <div class="top flex items-center px-5 br-text-sm">
+                    Transaction Type
+                </div>
+                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
+                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border" placeholder="Select transaction type" />
+                </div>
+                <div class="top flex items-center px-5 br-text-sm">Currency</div>
+                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
+                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border" placeholder="Select transaction type" />
+                </div>
+                <div class="top flex items-center px-5 br-text-sm">POS ID</div>
+                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
+                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border" placeholder="Enter POS ID" />
+                </div>
+                <div class="top flex items-center px-5 br-text-sm">
+                    Messa Reciept number
+                </div>
+                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
+                    <input type="text" class="w-full h-10 border border-gray-300 px-2 light-border" placeholder="Enter messa reciept number" />
+                </div>
+                <div class="flex gap-5 py-5 mt-3 items-center justify-between px-5 br-text-sm">
+                    <button class="default-btn" onclick="hidePopup()">Cancel</button>
+                    <button class="primary-btn">Filter</button>
+                </div>
+            </div>
+            <div class="popup hidden refund-filter-popup z-90 shadow ...">
+                <div class="top flex items-center px-5 br-text-sm">Date</div>
+                <div class="flex datetime border-b border-gray-100 justify-between gap-2 py-4 br-text-xs px-5 br-text-sm">
+                    <a href="#">Today</a>
+                    <a href="#">Last 7 days</a>
+                    <a href="#" class="active">30 Days</a>
+                    <a href="#">1 year</a>
+                </div>
+                <div class="flex gap-5 py-5 items-center justify-between px-5 br-text-sm">
+                    <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
+                    <input type="date" class="w-full h-10 border border-gray-300 px-2 light-border" />
+                </div>
+                <div class="top flex items-center px-5 br-text-sm">Status</div>
+                <div class="flex items-center gap-x-5 gap-y-1 py-3 flex-wrap px-5 br-text-sm">
+                    <span><input type="checkbox" /> Sucessful</span>
+                    <span><input type="checkbox" /> Abandoned</span>
+                    <span><input type="checkbox" /> Pending</span>
+                </div>
+                <div class="flex gap-5 py-5 mt-2 items-center justify-between px-5 br-text-sm">
+                    <button class="default-btn" onclick="hidePopup()">Cancel</button>
+                    <button class="primary-btn">Filter</button>
+                </div>
+            </div>
+            <div class="popup hidden single-refund-popup z-90 shadow ..." style="height: 60vh !important">
+                <div class="top flex items-center px-5 br-text-sm">
+                    Top up balance
+                </div>
+                <div class="flex gap-1 py-2 flex-col justify-center px-5 br-text-sm">
+                    <p class="br-text-xs flex justify-between">
+                        <span class="text-black">Fund wallet</span>
+                    </p>
+                    <p class="br-text-xs flex justify-between">
+                        <span class="text-gray-400">Which balance do you want to fund?</span
+              >
+            </p>
+            <input
+              type="text"
+              class="w-full h-10 border border-gray-300 px-2 light-border rounded"
+              placeholder="NGN 0.00"
+            />
+          </div>
+          <p class="br-text-xs px-5 flex justify-between">
+            <span class="text-black font-semibold">To fund your wallet</span>
+                    </p>
+                    <p class="br-text-xs px-5 flex justify-between">
+                        <span class="text-black">Transfer the amount you want to fund to the amount details below
+              adn your balace will be funded.</span
+            >
+          </p>
+          <div class="flex gap-1 py-2 flex-col justify-center px-5 br-text-sm">
+            <p class="br-text-xs bg-gray-50 flex flex-col relative">
+              <span class="text-black px-2 py-1"> Wema bank PLC </span>
+                        <span class="text-black px-2 py-1"> 7833236584 </span>
+                        <span class="text-black px-2 py-1"> Keazzy </span>
+
+                        <button class="bg-blue-900 px-3 text-white text-xs py-1 rounded absolute right-0 bottom-3">
+                copy
+              </button>
+                    </p>
+                </div>
+                <div class="flex gap-2 py-2 mt-2 items-center justify-between px-5 br-text-sm">
+                    <button class="default-btn" onclick="hidePopup()">Cancel</button>
+
+                    <div>
+                        <button class="primary-btn">Set Limit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="popup hidden download-transaction-popup z-90 shadow ..." style="height: 60vh !important">
+                <div class="top flex items-center px-5 br-text-sm">
+                    Top up balance
+                </div>
+                <div class="flex datetime border-b border-gray-100 justify-between gap-2 text-center py-4 br-text-xs px-5 br-text-sm">
+                    Fund your wallet
+                </div>
+                <div class="flex gap-1 py-5 flex-col justify-center px-5 br-text-sm">
+                    <p class="br-text-xs flex justify-between">
+                        <span class="text-black">Which balance do you want to fund</span>
+                    </p>
+                    <input type="text" disabled="true" class="time-custom-field w-full h-10 border border-gray-300 px-2 light-border rounded" placeholder="NGN0.00" />
+                </div>
+                <p class="br-text-xs flex justify-between px-5">
+                    <span class="text-black font-semibold">To fund your wallet</span>
+                </p>
+                <p class="br-text-xs flex justify-between px-5">
+                    <span class="text-black">Transfer the amount you want to fund to the account details below
+              and your balance will be funded.</span
+            >
+          </p>
+          <div class="br-text-xs px-5">
+            <p class="w-full bg-blue-50 p-3 relative">
+              <span class="text-black block">Wema Bank PLC.</span>
+                    <span class="text-black block">7812096941</span>
+                    <span class="text-black block">Keazzy</span>
+
+                    <span class="px-4 py-2 rounded-lg cursor-pointer bg-blue-900 text-white text-xs absolute right-3 bottom-3">copy</span
+              >
+            </p>
+          </div>
+          <!-- <div class="flex gap-5 py-5 mt-2 items-center justify-between px-5 br-text-sm">
+                    <button class="default-btn" onclick="hidePopup()">Cancel</button>
+                    <button class="primary-btn">Filter</button>
+                </div> -->
+        </div>
+    </div>
+    <div class="sidebar sticky top-0">
+        <div class="sidebar-navbar flex flex-col justify-center pl-6">
+          <a href="" class="sidebar-logo"> Keazzy </a>
+          <p class="br-text-sm font-normal">
+            <span class="text-gray-400">Merchant ID:</span> 01234567
+                </p>
+            </div>
+            <div class="sidebar-nav">
+                <ul class="side-navlist">
+                    <a href="./overview.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/overview-icon.svg"
+                    width="20px"
+                    alt="overview-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Overview </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">
+                        Your Business
+                    </p>
+                    <a href="transaction-new.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/transaction-icon.svg"
+                    width="20px"
+                    alt="transaction-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Transaction </span>
+                        </li>
+                    </a>
+                    <a href="./customer.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/customer-icon.svg"
+                    width="20px"
+                    alt="customer-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Customer </span>
+                        </li>
+                    </a>
+                    <a href="./balance.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/balance-icon.svg"
+                    width="20px"
+                    alt="balance-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Balance </span>
+                        </li>
+                    </a>
+                    <a href="./transfer.html" class="side-nav active-sidebar flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/transfer-icon.svg"
+                    width="20px"
+                    alt="transfer-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Transfers </span>
+                        </li>
+                    </a>
+                    <a href="./sub-account.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/subaccount-icon.svg"
+                    width="20px"
+                    alt="subaccount-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Subaccounts </span>
+                        </li>
+                    </a>
+                    <a href="./card.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/card-icon.svg"
+                    width="20px"
+                    alt="card-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Cards </span>
+                        </li>
+                    </a>
+                    <a href="./chargeback.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/chargeback-icon.svg"
+                    width="20px"
+                    alt="chargeback-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Chargebacks </span>
+                        </li>
+                    </a>
+                    <a href="./airtime-and-dstv.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/airtimeAndDstv-icon.svg"
+                    width="20px"
+                    alt="airtimeAndDstv-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Airtime & DSTV </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">
+                        Collect Payments
+                    </p>
+                    <a href="./store.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/store-icon.svg"
+                    width="20px"
+                    alt="store-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Store </span>
+                        </li>
+                    </a>
+                    <a href="./payment-link.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/paymentLink-icon.svg"
+                    width="20px"
+                    alt="paymentlink-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Payment links </span>
+                        </li>
+                    </a>
+                    <p class="side-nav flex items-center br-text-xs text-gray-400 font-normal my-0">
+                        Billing Tools
+                    </p>
+                    <a href="./payment-plan.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/paymentplan-icon.svg"
+                    width="20px"
+                    alt="paymentplan-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Payment plans </span>
+                        </li>
+                    </a>
+                    <a href="./invoices.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/invoices-icon.svg"
+                    width="20px"
+                    alt="invoices-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Invoices </span>
+                        </li>
+                    </a>
+                    <a href="#switch" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/switch-icon.svg"
+                    width="20px"
+                    alt="switchmode-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Switch to test mode </span>
+                        </li>
+                    </a>
+                    <a href="./refferal.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/referral-icon.svg"
+                    width="20px"
+                    alt="refferals-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Refferals </span>
+                        </li>
+                    </a>
+                    <a href="./setting.html" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/setting-icon.svg"
+                    width="20px"
+                    alt="setting-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Settings </span>
+                        </li>
+                    </a>
+                    <a href="./pages/login.html#logout" style="margin-top: 32px; margin-bottom: 20px" class="side-nav flex">
+                        <li class="flex items-center br-nav-gap">
+                            <span class="nav-icon">
+                  <img
+                    src="./assets/dashboard-icons/signout-icon.svg"
+                    width="20px"
+                    alt="signout-icon-not-found"
+                  />
+                </span>
+                            <span class="nav-text br-text-xs"> Logout </span>
+                        </li>
+                    </a>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <div class="main-navbar flex items-center justify-between px-8">
+                <p class="menu-btn"></p>
+                <div class="searchbox relative">
+                    <span class="absolute icon">
+              <img
+                src="./assets/dashboard-icons/inner-content/search-icon.svg"
+                width="13.67"
+                alt=""
+              />
+            </span>
+                    <input type="text" class="nav-search-bar br-text-xs font-normal pl-8 text-gray-400 br-input-2" placeholder="Search transaction, customers, cards, subaccounts and payment references." />
+                </div>
+                <button class="user-status flex items-center gap-1 py-2 px-3 font-light br-text-xs text-white rounded-full">
+            You are live
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 13 13"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.17514 4.8326C6.06777 4.90419 5.99162 5.00225 5.93701 5.11146C5.84651 5.29247 5.6264 5.36584 5.44538 5.27534C5.26437 5.18483 5.191 4.96472 5.28151 4.78371C5.37958 4.58756 5.53245 4.38026 5.76862 4.22281C6.00708 4.06384 6.30855 3.97042 6.67804 3.97042C6.9994 3.97042 7.34689 4.06554 7.62314 4.27273C7.90918 4.48726 8.11326 4.82051 8.11326 5.25295C8.11326 5.75784 7.86274 6.09315 7.61161 6.33537C7.51916 6.42455 7.41696 6.50991 7.3288 6.58354C7.30361 6.60457 7.2794 6.6248 7.25707 6.64373C7.16788 6.71934 7.09819 6.78272 7.04448 6.8433V7.51265C7.04448 7.71503 6.88042 7.87909 6.67804 7.87909C6.47566 7.87909 6.3116 7.71503 6.3116 7.51265V6.79272C6.3116 6.67734 6.34427 6.54652 6.43241 6.43354C6.53936 6.29642 6.66955 6.181 6.78315 6.0847C6.81423 6.05835 6.84391 6.03355 6.87247 6.00967L6.87295 6.00927C6.9568 5.93918 7.03103 5.87713 7.10283 5.80788C7.28234 5.63474 7.38038 5.47756 7.38038 5.25295C7.38038 5.07466 7.30454 4.94987 7.18342 4.85903C7.05252 4.76085 6.86561 4.70329 6.67804 4.70329C6.43679 4.70329 6.28022 4.76255 6.17514 4.8326Z"
+                fill="white"
+                fill-opacity="0.7"
+              />
+              <path
+                d="M7.1666 9.10055C7.1666 9.37039 6.94786 9.58914 6.67802 9.58914C6.40818 9.58914 6.18943 9.37039 6.18943 9.10055C6.18943 8.83072 6.40818 8.61197 6.67802 8.61197C6.94786 8.61197 7.1666 8.83072 7.1666 9.10055Z"
+                fill="white"
+                fill-opacity="0.7"
+              />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.67802 1.2832C3.7098 1.2832 1.30359 3.68942 1.30359 6.65763C1.30359 9.62585 3.7098 12.0321 6.67802 12.0321C9.64623 12.0321 12.0524 9.62585 12.0524 6.65763C12.0524 3.68942 9.64623 1.2832 6.67802 1.2832ZM2.03647 6.65763C2.03647 4.09417 4.11456 2.01608 6.67802 2.01608C9.24148 2.01608 11.3196 4.09417 11.3196 6.65763C11.3196 9.22109 .24148 11.2992 6.67802 11.2992C4.11456 11.2992 2.03647 9.22109 2.03647 6.65763Z"
+                fill="white"
+                fill-opacity="0.7"
+              />
+            </svg>
+          </button>
+                <div class="navbar-account flex items-center gap-6">
+                    <button>
+              <img
+                src="./assets/dashboard-icons/inner-content/notification-icon.svg"
+                alt=""
+              />
+            </button>
+                    <h5 class="br-text-primary nav-documentation-text">Documentaion</h5>
+                    <button>
+              <img
+                src="./assets/dashboard-icons/inner-content/profile.svg"
+                alt=""
+              />
+            </button>
+                </div>
+            </div>
+            <div class="w-full h-auto px-5 py-5">
+                <div class="info-box flex gap-5 items-center px-6 bg-white w-full h-28 border-l-8 mb-6 border-blue-900">
+                    <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="22.5" cy="22.5" r="22.5" fill="#EEEFF7" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M13 22.9993C13 17.4803 17.48 12.9993 23 12.9993C28.53 12.9993 33 17.4803 33 22.9993C33 28.5203 28.53 32.9993 23 32.9993C17.48 32.9993 13 28.5203 13 22.9993ZM22.12 19.2093C22.12 18.7303 22.52 18.3293 23 18.3293C23.48 18.3293 23.87 18.7303 23.87 19.2093V23.6293C23.87 24.1103 23.48 24.4993 23 24.4993C22.52 24.4993 22.12 24.1103 22.12 23.6293V19.2093ZM23.01 27.6803C22.52 27.6803 22.13 27.2803 22.13 26.8003C22.13 26.3203 22.52 25.9303 23 25.9303C23.49 25.9303 23.88 26.3203 23.88 26.8003C23.88 27.2803 23.49 27.6803 23.01 27.6803Z"
+                fill="#6772B7"
+              />
+            </svg>
+                    <div class="text-desc">
+                        <h5 class="text-lg m-0 font-semibold">
+                            Temporary restrictions on some currencies.
+                        </h5>
+                        <p class="text-md m-0 font-medium">
+                            Transfers to some currencies are currently unavailable. This is temporary and will back in no time
+                        </p>
+                    </div>
+                </div>
+                <div class="content-box bg-white h-auto pb-4 w-full">
+                    <div class="tab-content transaction-tab">
+                        <div class="tab-container2 flex items-center justify-between">
+                            <p class="br-text-primary flex items-center gap-1 br-text-xs">
+                                <a href="#1-year-ago" onclick="timeOptionsForTransaction(event)" class="time-option cursor-pointer py-2 px-2 rounded">NGN</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >GHS</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >KES</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >RWF</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >TZS</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >SLL</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >ZMW</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >ZAR</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >USD</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >EUR</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >GBP</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >XOF</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >XAF</a
+                  >
+
+                  <a
+                    href="#1-year-ago"
+                    onclick="timeOptionsForTransaction(event)"
+                    class="time-option cursor-pointer py-2 px-2 rounded"
+                    >ETB</a
+                  >
+                </p>
+                <div class="tab-container justify-between">
+                  <span></span>
+                  <div class="flex items-center gap-4">
+                    <button
+                      onclick="showSingleRefundPopup()"
+                      class="default-btn flex items-center br-text-xs relative"
+                    >
+                      Top balance
+                      <!-- <div
+                                            class="refund-log-dropdown flex hidden flex-col items-start absolute bg-white border border-gray-200 z-90 right-0 top-12 shadow rounded py-2 px-2">
+                                            <a href="#" onclick="showSingleRefundPopup()"
+                                                class="w-full br-text-xs hover:bg-blue-50 my-1 text-left px-2">Set
+                                                Limit</a>
+                                <a href="#" class="w-full br-text-xs hover:bg-blue-50 my-1 text-left px-2">Remove
+                                                Limit</a>
+                        </div> -->
+                        </button>
+                        <!-- <button onclick="showDownloadTransactionPopup()"
+                                            class="download-btn flex gap-2 items-center">
+                                            <p class="hidden md:flex text-white br-text-xs">Top up</p>
+                                        </button> -->
+                    </div>
+                </div>
+            </div>
+            <div class="w-full">
+                <div class="grid grid-cols-3 pt-4">
+                    <div class="h-40 pt-10 pl-5">
+                        <h5 class="text-sm font-medium">AVAILABLE BALANCE</h5>
+                        <h3 class="text-2xl font-semibold">NGN0.00</h3>
+                    </div>
+                    <div class="border-r border-l border-gray-200 h-40 pt-10 px-6">
+                        <h5 class="text-sm font-medium">
+                            TOTAL AMOUNT TRANSFERRED
+                        </h5>
+                        <h3 class="text-2xl font-semibold">NGN0.00</h3>
+                    </div>
+                    <div class="h-40 pt-10 pl-6">
+                        <h5 class="text-sm font-medium">SUCCESSFUL TRANSFERS</h5>
+                        <h3 class="text-2xl font-semibold">NGN0.00</h3>
+                        <!-- <p class="text-xs font-medium">You do not have any transaction yet.</p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content refund-tab hidden">
+            <div class="w-full flex flex-col justify-center items-center h-40">
+                <p class="br-text-sm text-center">
+                    This is the balance history for your available balance only. This data does not include your ledger balance.
+                </p>
+                <p class="br-text-sm text-center">
+                    There are no transactions available for your NGN wallet.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="tab-container-3 my-10 py-3 px-5">
+        <div class="flex items-center justify-between">
+            <p class="br-text-primary flex items-center gap-1 br-text-xs">
+                <a class="cursor-pointer py-4 px-4 tab-3-active">Overview</a>
+
+                <a class="cursor-pointer py-4 px-4">Transfers</a>
+
+                <a class="cursor-pointer py-4 px-4">Awaiting Approval</a>
+
+                <a class="cursor-pointer py-4 px-4">Beneficiaries</a>
+
+                <a class="cursor-pointer py-4 px-4">Funding History</a>
+            </p>
+            <div class="new-transfer">
+                <button class="defaulflex items-center br-text-xs relative" onclick="showDropDown('transfer-dropdown')">
+    New Transfer
+  </button>
+                <div class="transfer-dropdown absolute none z-90">
+                    <ul>
+                        <li class="defaulflex items-center">
+                            <a style="background-color: var(--light-border-color);" onclick="showTransferPopup()">Transfer to bank account</a>
+                        </li>
+                        <li class="defaulflex items-center">
+                            <a>Transfer to Mobile Money</a>
+                        </li>
+                        <li class="defaulflex items-center">
+                            <a>Transfer to Barter account</a>
+                        </li>
+                        <li class="defaulflex items-center">
+                            <a>Transfer to Flutterwave account</a>
+                        </li>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="pt-3 time">
+            <p class="br-text-primary flex items-center gap-1 br-text-xs">
+                <a class="cursor-pointer py-2 pr-4">Today</a>
+
+                <a class="cursor-pointer py-2 px-4">Last 7 days</a>
+
+                <a class="cursor-pointer py-2 px-4 shadow-md">30 days</a>
+
+                <a class="cursor-pointer py-2 px-4">1 year</a>
+            </p>
+        </div>
+
+        <div class="w-full transfer-container pt-10">
+            <div class="left-chart">
+                <div class="flex justify-between py-4 pr-6">
+                    <h4 class="text-xl font-semibold flex items-center gap-2">
+                        ₦0.00
+                        <span class="text-blue-800 text-xs">TOTAL VALUE</span>
+                    </h4>
+                </div>
+                <canvas id="myChart"></canvas>
+            </div>
+            <p class="flex justify-end text-sm gap-4">
+                <span>Jul 13, 2021</span> -
+                <span>Aug 12, 2021</span>
+            </p>
+        </div>
+    </div>
+    </div>
+
+
+
+
+
+    </div>
+
+
+
+</body>
+
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="./js/graph.js"></script>
+<script src="./js/interact.js"></script>
+
+
+</html>

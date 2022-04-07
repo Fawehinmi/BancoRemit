@@ -1,0 +1,47 @@
+completed ---------------------------------------
+
+OverView Page:
+  - Merchant information should'nt show until add bank account (add and continue button is clicked)
+  - Submit Compliance information button should lead to overview page
+
+
+Transaction Page:
+  - Money here is available for "transfers" should link to transfer page (Under available balance)
+
+  
+Balance Page:
+  - Money here is available for "transfers" should link to transfer page (Under available balance)
+
+Transfer Page:
+  - Transfer Page not complete
+  Subaccounts Page:
+  - Last part not styled like the figma design
+
+Cards Page:
+    - No design for no cards 
+    Airtime and Dstv Page:
+    No pop up for "buy Airtime" button
+
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Store Page:
+    "Set my Store" or "Add product" functionality not added
+
+Payment Links Page:
+    "Create link" button/ functionality not added
+
+Payment Plan Page:
+    "Create Plan" button/ functionality not added

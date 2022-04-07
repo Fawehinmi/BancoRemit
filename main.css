@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root {
+    /* I added 10px to sidebar width to cater for the scrollbar space */
+    --sidebar-width: 250px;
+    --primary-color: #3C457E;
+    --inactive-primary-color: #4C579F;
+    --light-primary-color: #BABFDE;
+    --light-bg-color: #F8F9FC;
+    --dark-color: #27272E;
+    --success-color: #3C7E62;
+    --success-border: #66CB9F;
+    --danger-border: #F16063;
+    --blue-color: #115DF6;
+    --warm-color: #FFEDE3;
+    --gold-color: #F7936F;
+    --gray-color: #718096;
+    --white-color: #ffffff;
+    --light-border-color: #EEEFF7;
+    --dark-border-color: #A0AEC0;
+    --inter-font: "Inter";
+    --raleway-font: "Raleway";
+    --font-xs: 13.33px;
+    --font-sm: 14px;
+    --font-md: 20px;
+    --font-lg: 24px;
+    --font-weight-bold: 700;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --inputfield-height: 38px;
+    --inputfield-height: 44px;
+    --inputfield-width: 444px;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    font-family: var(--inter-font);
+    font-weight: var(--font-weight-normal);
+    color: var(--dark-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+input,
+select {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+button,
+button:active,
+button:hover {
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    background-color: transparent;
+}
+
+.br-text-xs {
+    font-size: var(--font-xs);
+}
+
+.br-text-sm {
+    font-size: var(--font-sm);
+}
+
+.br-nav-gap {
+    gap: 18.67px;
+}
+
+.br-text-gray {
+    color: var(--gray-color);
+}
+
+.br-bg-lightgray {
+    background-color: var(--light-primary-color);
+}
+
+.br-input {
+    height: var(--inputfield-height);
+    border: 1px solid var(--light-border-color);
+    width: 606px;
+}
+
+.br-input-2,
+.br-input-2:focus {
+    height: var(--inputfield-height);
+    border: 1px solid var(--light-border-color);
+    width: 606px;
+}
+
+.br-text-primary {
+    color: var(--primary-color)
+}
